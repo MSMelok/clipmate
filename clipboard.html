@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClipMate - Your Clipboard Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1 class="app-title">Clip<span class="gradient-text">Mate</span></h1>
+        <div class="header-actions">
+            <button id="sync-btn" class="icon-button" title="Sync clipboard items">
+                <i data-feather="refresh-cw"></i>
+            </button>
+            <button id="theme-toggle-btn" class="icon-button">
+                <i data-feather="moon" id="dark-icon"></i>
+                <i data-feather="sun" id="light-icon" style="display: none;"></i>
+            </button>
+            <div class="user-info">
+                <span id="user-email">user@example.com</span>
+                <button id="logout-btn" class="text-button">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <div class="clipboard-container">
+            <div class="clipboard-header">
+                <h2>My Clipboard</h2>
+                <button id="add-clipboard-btn" class="icon-button" title="Add new clipboard item">
+                    <i data-feather="plus"></i>
+                </button>
+            </div>
+            
+            <div id="clipboard-items" class="clipboard-items">
+                <!-- Clipboard items will be added here dynamically -->
+            </div>
+
+            <div id="empty-state" class="empty-state">
+                <i data-feather="clipboard" class="empty-icon"></i>
+                <p>Your clipboard is empty. Click the + button to add an item.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-title">Confirm Delete</h3>
+            <p id="modal-message">Are you sure you want to delete this clipboard item?</p>
+            <div class="modal-actions">
+                <button id="modal-cancel" class="text-button">Cancel</button>
+                <button id="modal-confirm" class="danger-button">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Clipboard Item Template -->
+    <template id="clipboard-item-template">
+        <div class="clipboard-item">
+            <textarea class="clipboard-input" placeholder="Add text here..."></textarea>
+            <div class="clipboard-actions">
+                <button class="copy-btn icon-button" title="Copy to clipboard">
+                    <i data-feather="copy"></i>
+                </button>
+                <button class="delete-btn icon-button" title="Delete item">
+                    <i data-feather="trash-2"></i>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Firebase SDK -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js"></script>
+    
+    <!-- Feather Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <!-- App Scripts -->
+    <script type="module" src="./js/firebase.js"></script>
+    <script type="module" src="./js/script.js"></script>
+    <script>
+        // Initialize Feather icons
+        document.addEventListener('DOMContentLoaded', () => {
+            feather.replace();
+        });
+    </script>
+</body>
+</html>
