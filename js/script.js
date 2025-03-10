@@ -98,7 +98,7 @@ function setupAuthStateListener() {
             setupSyncInterval();
         } else {
             // User is signed out, redirect to login page
-            window.location.href = '/';
+            window.location.href = './index.html';
             
             // Clear sync interval if it exists
             clearSyncInterval();
