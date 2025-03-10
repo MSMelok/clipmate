@@ -74,7 +74,7 @@ function checkAuthState() {
         
         if (user) {
             // User is signed in, redirect to clipboard page
-            window.location.href = '/clipboard';
+            window.location.href = './clipboard.html';
         }
     });
 }
