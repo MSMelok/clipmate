@@ -481,6 +481,26 @@ input, textarea {
     animation: spin 1s linear infinite;
 }
 
+/* Footer */
+.app-footer {
+    text-align: center;
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+}
+
+.app-footer a {
+    color: var(--gradient-start);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.app-footer a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
 /* Animations */
 @keyframes fadeIn {
     from {
@@ -585,5 +605,10 @@ input, textarea {
         left: var(--spacing-md);
         right: var(--spacing-md);
         text-align: center;
+    }
+
+    .app-footer {
+        margin-top: var(--spacing-lg);
+        padding: var(--spacing-sm);
     }
 }
