@@ -483,6 +483,9 @@ input, textarea {
 
 /* Footer */
 .app-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     text-align: center;
     padding: var(--spacing-md);
     margin-top: var(--spacing-xl);
